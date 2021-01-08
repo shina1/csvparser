@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload</title>
+  </head>
+  <body>
+    <form
+      id="uploadForm"
+      enctype="multipart/form-data"
+      action="upload"
+      method="post"
+    >
+      <label for="Upload">Upload an excel file only</label>
+      <input
+        type="file"
+        name="file"
+        id="upload"
+        placeholder="Upload csv, xlsx or xls file"
+      />
+      <input type="submit" value="Upload" name="submit" />
+    </form>
+  </body>
+</html>

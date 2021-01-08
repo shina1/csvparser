@@ -1,0 +1,27 @@
+{
+  "name": "excel-file-parser-api",
+  "version": "1.0.0",
+  "description": "An api for reading and writing into excel files",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shina1/csvparser"
+  },
+  "author": "Shina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shina1/csvparser/issues"
+  },
+  "homepage": "https://github.com/shina1/csvparser#README.md",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "csvtojson": "^2.0.10",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "xls-to-json-lc": "^0.3.4",
+    "xlsx-to-json-lc": "^0.5.0"
+  }
+}
