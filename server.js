@@ -107,6 +107,8 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/form.html");
 });
 // port server
-app.listen("8080", function () {
-  console.log("listening on port 8080");
+let port = process.env.PORT;
+
+app.listen(port, function () {
+  console.log(`listening on port ${port}`);
 });
