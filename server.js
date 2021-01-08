@@ -84,16 +84,29 @@ app.post("/upload", function (req, res) {
         },
 
         function (err, result) {
+          let firstname, lastname, age;
           if (err) {
             return res.json({ error_code: 1, err_desc: err, data: null });
           }
          
-        const resultObjs = result.map((el) => [el.firstname, el.lastname, el.age] );
-          
-          fs.writeFile("output.json", `${JSON.stringify(resultObjs)}`, "utf-8", (err) => {
+         const resultObjs = result.map((el) => {
+           if (el.firstname && el.lastname  && el.age ){
+             return [el.firstname, el.lastname, el.age]
+           }else {
+             return el
+           }
+         });
+
+        //  if(resultObjs !== selectedFields){
+        //    return result
+        //  }else{
+        //    return resultObjs
+        //  }
+
+          fs.writeFile("output.json", `${JSON.stringify( resultObjs)}`, "utf-8", (err) => {
             console.log("writting the file");
           });
-          res.json({ resultObjs });
+          res.json(  {resultObjs });
         }
       );
     } catch (e) {
@@ -107,7 +120,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/form.html");
 });
 // port server
-let port = process.env.PORT;
+let port = process.env.PORT || 8080;
 
 app.listen(port, function () {
   console.log(`listening on port ${port}`);
